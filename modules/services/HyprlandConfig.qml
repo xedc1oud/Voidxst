@@ -15,11 +15,10 @@ QtObject {
     property var currentAnimationConfig: null
     property Process readAnimationsProcess: Process {
         command: ["hyprctl", "-j", "animations"]
-        onExited: {
-            if (exitCode === 0) {
+        stdout: StdioCollector {
+            onStreamFinished: {
                 try {
-                    const output = stdout.readAll();
-                    const parsed = JSON.parse(output);
+                    const parsed = JSON.parse(text);
                     if (Array.isArray(parsed) && parsed.length > 0) {
                         // hyprctl -j animations returns [animations, beziers]
                         currentAnimationConfig = parsed;
