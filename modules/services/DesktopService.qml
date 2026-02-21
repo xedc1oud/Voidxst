@@ -328,7 +328,7 @@ Singleton {
     }
 
     Component.onCompleted: {
-        getDesktopDir();
+        Qt.callLater(() => getDesktopDir());
     }
 
     Process {
