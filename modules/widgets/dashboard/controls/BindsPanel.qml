@@ -1669,10 +1669,10 @@ Item {
                             }
 
                             // =====================
-                            // LAYOUT SELECTOR (for Hyprland)
+                            // LAYOUT SELECTOR (for AxctlService)
                             // =====================
                             Text {
-                                text: "Layouts (Hyprland)"
+                                text: "Layouts (AxctlService)"
                                 font.family: Config.theme.font
                                 font.pixelSize: Styling.fontSize(-1)
                                 font.weight: Font.Medium
