@@ -34,8 +34,8 @@ Item {
     readonly property bool hasWindows: toplevels.length > 0
 
     // Get the bar position for this screen
-    readonly property string barPosition: Config.bar?.position ?? "top"
-    readonly property string notchPosition: Config.notchPosition ?? "top"
+    readonly property string barPosition: (Config.bar && Config.bar.position !== undefined) ? Config.bar.position : "top"
+    readonly property string notchPosition: Config.notchPosition !== undefined ? Config.notchPosition : "top"
 
     // Get the bar panel for this screen to check its state
     readonly property var barPanelRef: Visibilities.barPanels[screen.name]
@@ -47,7 +47,7 @@ Item {
             return barPanelRef.pinned;
         }
         // Fallback to config only if panel ref is missing
-        return Config.bar?.pinnedOnStartup ?? true;
+        return (Config.bar && Config.bar.pinnedOnStartup !== undefined) ? Config.bar.pinnedOnStartup : true;
     }
     
     // Check if bar is hovering (for synchronized reveal when bar is at same side)
@@ -78,7 +78,7 @@ Item {
     // 2. If notch and bar are on same side: hide only if bar is unpinned OR if fullscreen is present
     readonly property bool shouldAutoHide: {
         if (barPosition !== notchPosition) {
-            if (Config.notch?.keepHidden ?? false) return true;
+            if ((Config.notch && Config.notch.keepHidden !== undefined) ? Config.notch.keepHidden : false) return true;
             return hasWindows || activeWindowFullscreen;
         }
         return !barPinned || activeWindowFullscreen;
@@ -101,7 +101,7 @@ Item {
     readonly property bool reveal: {
         // If keepHidden is true, ONLY show on interaction
         // UNLESS notch and bar are on same side (e.g. both top), then keepHidden is IGNORED for sync consistency
-        if ((Config.notch?.keepHidden ?? false) && barPosition !== notchPosition) {
+        if (((Config.notch && Config.notch.keepHidden !== undefined) ? Config.notch.keepHidden : false) && barPosition !== notchPosition) {
             return (screenNotchOpen || hasActiveNotifications || hoverActive || barHoverActive);
         }
 
@@ -189,7 +189,7 @@ Item {
 
         // Width follows the notch, height is small hover region when hidden
         width: notchRegionContainer.width + 20
-        height: root.reveal ? notchRegionContainer.height : Math.max(Config.notch?.hoverRegionHeight ?? 8, 8)
+        height: root.reveal ? notchRegionContainer.height : Math.max((Config.notch && Config.notch.hoverRegionHeight !== undefined) ? Config.notch.hoverRegionHeight : 8, 8)
 
         x: (parent.width - width) / 2
         y: root.notchPosition === "top" ? 0 : parent.height - height
@@ -271,7 +271,7 @@ Item {
                 anchors.top: root.notchPosition === "top" ? parent.top : undefined
                 anchors.bottom: root.notchPosition === "bottom" ? parent.bottom : undefined
 
-                readonly property int frameOffset: Config.bar?.frameEnabled ? (Config.bar?.frameThickness ?? 6) : 0
+                readonly property int frameOffset: (Config.bar && Config.bar.frameEnabled) ? ((Config.bar.frameThickness !== undefined) ? Config.bar.frameThickness : 6) : 0
 
                 anchors.topMargin: (root.notchPosition === "top" ? (Config.notchTheme === "default" ? 0 : (Config.notchTheme === "island" ? 4 : 0)) : 0) + (root.notchPosition === "top" ? frameOffset : 0)
                 anchors.bottomMargin: (root.notchPosition === "bottom" ? (Config.notchTheme === "default" ? 0 : (Config.notchTheme === "island" ? 4 : 0)) : 0) + (root.notchPosition === "bottom" ? frameOffset : 0)
