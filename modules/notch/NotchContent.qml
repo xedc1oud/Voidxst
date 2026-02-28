@@ -3,7 +3,6 @@ import QtQuick.Effects
 import Quickshell
 import Quickshell.Io
 import Quickshell.Wayland
-import Quickshell.Hyprland
 import qs.modules.globals
 import qs.modules.theme
 import qs.modules.widgets.defaultview
@@ -25,10 +24,10 @@ Item {
 
     // Get this screen's visibility state
     readonly property var screenVisibilities: Visibilities.getForScreen(screen.name)
-    readonly property bool isScreenFocused: Hyprland.focusedMonitor && Hyprland.focusedMonitor.name === screen.name
+    readonly property bool isScreenFocused: AxctlService.focusedMonitor && AxctlService.focusedMonitor.name === screen.name
 
     // Monitor reference and refrence to toplevels on monitor
-    readonly property var hyprlandMonitor: Hyprland.monitorFor(screen)
+    readonly property var hyprlandMonitor: AxctlService.monitorFor(screen)
     readonly property var toplevels: hyprlandMonitor.activeWorkspace.toplevels.values
 
     // Check if there are any windows on the current monitor and workspace

@@ -4,7 +4,7 @@ import QtQuick.Layouts
 import QtQuick.Effects
 import Quickshell
 import Quickshell.Wayland
-import Quickshell.Hyprland
+import qs.modules.services
 import qs.modules.theme
 import qs.modules.components
 import qs.config
