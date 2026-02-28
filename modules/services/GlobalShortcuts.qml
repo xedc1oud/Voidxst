@@ -2,7 +2,7 @@ pragma Singleton
 pragma ComponentBehavior: Bound
 
 import QtQuick
-import Quickshell.Hyprland._GlobalShortcuts
+import Quickshell.AxctlService._GlobalShortcuts
 import qs.modules.globals
 import qs.modules.services
 import qs.config
