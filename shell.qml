@@ -115,6 +115,12 @@ ShellRoot {
 
                 frameEnabled: (Config.bar && Config.bar.frameEnabled !== undefined ? Config.bar.frameEnabled : false)
                 frameThickness: (Config.bar && Config.bar.frameThickness !== undefined ? Config.bar.frameThickness : 6)
+
+                // Sidebar status for reservations
+                sidebarEnabled: GlobalStates.assistantVisible && screenShellContainer.modelData.name === GlobalStates.assistantScreenName
+                sidebarPinned: GlobalStates.assistantPinned
+                sidebarWidth: GlobalStates.assistantWidth
+                sidebarPosition: GlobalStates.assistantPosition
             }
         }
     }

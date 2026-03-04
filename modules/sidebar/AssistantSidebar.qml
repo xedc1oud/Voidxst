@@ -138,7 +138,7 @@ Item {
 
     Item {
         id: sidebarContainer
-        width: GlobalStates.assistantWidth + (root.sidebarMargin * 2)
+        width: GlobalStates.assistantWidth + root.sidebarMargin
         height: parent.height
 
         x: {
@@ -159,7 +159,10 @@ Item {
 
         StyledRect {
             anchors.fill: parent
-            anchors.margins: root.sidebarMargin
+            anchors.topMargin: root.sidebarMargin
+            anchors.bottomMargin: root.sidebarMargin
+            anchors.leftMargin: GlobalStates.assistantPosition === "right" ? root.sidebarMargin : 0
+            anchors.rightMargin: GlobalStates.assistantPosition === "left" ? root.sidebarMargin : 0
             variant: "bg"
 
             ColumnLayout {

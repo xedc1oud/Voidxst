@@ -81,7 +81,7 @@ Item {
     }
 
     // Sidebar expansion logic (synchronized with sidebar active and pinned)
-    readonly property int sidebarExpansion: (frameEnabled && sidebarPinned) ? Math.round((sidebarWidth + (sidebarMargin * 2) + baseThickness) * _sidebarAnimProgress) : 0
+    readonly property int sidebarExpansion: (frameEnabled && sidebarPinned) ? Math.round((sidebarWidth + sidebarMargin + baseThickness) * _sidebarAnimProgress) : 0
 
     // --- Side-Specific Thickness Restoration ---
 

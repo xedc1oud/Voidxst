@@ -47,7 +47,7 @@ Item {
     readonly property string sidebarPosition: GlobalStates.assistantPosition
 
     readonly property int sidebarMargin: 4
-    readonly property int sidebarExpansion: sidebarPinned ? (sidebarWidth + (sidebarMargin * 2) + thickness) : 0
+    readonly property int sidebarExpansion: sidebarPinned ? (sidebarWidth + sidebarMargin + thickness) : 0
 
     readonly property string barPos: Config.bar?.position ?? "top"
     // Bar height is 44. Total size = Thickness (Outer) + Bar (44) + Thickness (Inner)
