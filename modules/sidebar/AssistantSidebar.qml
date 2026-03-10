@@ -1074,7 +1074,8 @@ Item {
 
                         Item {
                             id: inputContainer
-                            height: (attachmentPreview.visible ? attachmentPreview.height + 14 : 0) + Math.min(150, Math.max(48, inputField.contentHeight + 24))
+                            property int attachmentPreviewHeight: attachmentPreview.visible ? Math.min(attachmentPreview.contentHeight, 120) + 8 : 0
+                            height: attachmentPreviewHeight + Math.min(150, Math.max(48, inputField.contentHeight + 24))
 
                             anchors.bottom: parent.bottom
                             property real centerMargin: (parent.height / 2) - (height / 2)
@@ -1101,64 +1102,75 @@ Item {
                                     anchors.fill: parent
                                     spacing: 6
 
-                                    Flow {
+                                    Flickable {
                                         id: attachmentPreview
-                                        height: visible ? 56 : 0
+                                        height: visible ? Math.min(contentHeight, 120) : 0
                                         Layout.fillWidth: true
                                         Layout.leftMargin: 12
                                         Layout.rightMargin: 12
                                         Layout.topMargin: 8
-                                        Layout.preferredHeight: visible ? 56 : 0
-                                        spacing: 6
+                                        Layout.preferredHeight: height
                                         visible: mainChatArea.pendingAttachments.length > 0
+                                        clip: true
+                                        boundsBehavior: Flickable.StopAtBounds
+                                        interactive: contentHeight > height
 
-                                        Repeater {
-                                            model: mainChatArea.pendingAttachments
+                                        contentWidth: width
+                                        contentHeight: attachmentsFlow.height
 
-                                            Item {
-                                                width: 48
-                                                height: 48
+                                        Flow {
+                                            id: attachmentsFlow
+                                            width: attachmentPreview.width
+                                            spacing: 6
 
-                                                StyledRect {
-                                                    anchors.fill: parent
-                                                    variant: "surface"
-                                                    radius: Styling.radius(6)
+                                            Repeater {
+                                                model: mainChatArea.pendingAttachments
 
-                                                    Image {
+                                                Item {
+                                                    width: 48
+                                                    height: 48
+
+                                                    StyledRect {
                                                         anchors.fill: parent
-                                                        anchors.margins: 2
-                                                        source: "data:" + modelData.mimeType + ";base64," + modelData.base64
-                                                        fillMode: Image.PreserveAspectCrop
-                                                        sourceSize.width: 48
-                                                        sourceSize.height: 48
-                                                    }
-                                                }
+                                                        variant: "surface"
+                                                        radius: Styling.radius(6)
 
-                                                Button {
-                                                    anchors.right: parent.right
-                                                    anchors.top: parent.top
-                                                    anchors.rightMargin: -4
-                                                    anchors.topMargin: -4
-                                                    width: 16
-                                                    height: 16
-                                                    flat: true
-                                                    z: 1
-
-                                                    contentItem: Text {
-                                                        text: Icons.cancel
-                                                        font.family: Icons.font
-                                                        font.pixelSize: 10
-                                                        color: Colors.overSurface
-                                                        horizontalAlignment: Text.AlignHCenter
-                                                        verticalAlignment: Text.AlignVCenter
+                                                        Image {
+                                                            anchors.fill: parent
+                                                            anchors.margins: 2
+                                                            source: "data:" + modelData.mimeType + ";base64," + modelData.base64
+                                                            fillMode: Image.PreserveAspectCrop
+                                                            sourceSize.width: 48
+                                                            sourceSize.height: 48
+                                                        }
                                                     }
 
-                                                    background: Rectangle {
-                                                        color: Colors.surfaceBright
-                                                        radius: 8
-                                                    }
+                                                    Button {
+                                                        anchors.right: parent.right
+                                                        anchors.top: parent.top
+                                                        anchors.rightMargin: -4
+                                                        anchors.topMargin: -4
+                                                        width: 16
+                                                        height: 16
+                                                        flat: true
+                                                        z: 1
 
-                                                    onClicked: mainChatArea.removeAttachment(index)
+                                                        contentItem: Text {
+                                                            text: Icons.cancel
+                                                            font.family: Icons.font
+                                                            font.pixelSize: 10
+                                                            color: Colors.overSurface
+                                                            horizontalAlignment: Text.AlignHCenter
+                                                            verticalAlignment: Text.AlignVCenter
+                                                        }
+
+                                                        background: Rectangle {
+                                                            color: Colors.surfaceBright
+                                                            radius: 8
+                                                        }
+
+                                                        onClicked: mainChatArea.removeAttachment(index)
+                                                    }
                                                 }
                                             }
                                         }
