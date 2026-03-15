@@ -12,6 +12,7 @@ ColumnLayout {
     id: root
     property string code: ""
     property string language: "txt"
+    property alias implicitWidth: root.width
 
     spacing: 0
 

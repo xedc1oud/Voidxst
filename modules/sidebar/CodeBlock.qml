@@ -12,6 +12,7 @@ ColumnLayout {
     id: root
     property string code: ""
     property string language: "txt"
+    property alias implicitWidth: root.width
 
     spacing: 0
 
@@ -22,7 +23,10 @@ ColumnLayout {
         Layout.fillWidth: true
         Layout.preferredHeight: 32
         variant: "surface"
-        radius: Styling.radius(4)
+        topLeftRadius: Styling.radius(4)
+        topRightRadius: Styling.radius(4)
+        bottomLeftRadius: 0
+        bottomRightRadius: 0
 
         // Flatten bottom corners to join with code area
         // Note: StyledRect doesn't support individual corner radius easily via variant.
@@ -97,7 +101,10 @@ ColumnLayout {
         Layout.fillWidth: true
         implicitHeight: codeText.contentHeight + 16
         variant: "internalbg"
-        radius: Styling.radius(0)
+        topLeftRadius: 0
+        topRightRadius: 0
+        bottomLeftRadius: Styling.radius(4)
+        bottomRightRadius: Styling.radius(4)
 
         // Overlap slightly to hide top radius if needed, or just keep as separate blocks
 
