@@ -60,17 +60,17 @@ Item {
         return false;
     }
 
-    // Fullscreen detection - check if active toplevel is fullscreen on this screen
+    // Fullscreen detection - use parent panel's robust detection, fallback to ToplevelManager
     readonly property bool activeWindowFullscreen: {
-        if (!compositorMonitor || !toplevels) return false;
-
-        // Check all toplevels on active workspcace
-        for (var i = 0; i < toplevels.length; i++) {
-            if (toplevels[i].fullscreen == true) {
-               return true;
-            }
+        // Prefer the parent UnifiedShellPanel's hasFullscreenWindow (checks both ToplevelManager + CompositorData)
+        if (barPanelRef && typeof barPanelRef.hasFullscreenWindow !== 'undefined') {
+            return barPanelRef.hasFullscreenWindow;
         }
-        return false;
+        // Fallback: use ToplevelManager (native Wayland) like the bar does
+        const toplevel = ToplevelManager.activeToplevel;
+        if (!toplevel || !toplevel.activated)
+            return false;
+        return toplevel.fullscreen === true;
     }
 
     // Should auto-hide logic:
@@ -103,6 +103,12 @@ Item {
         // UNLESS notch and bar are on same side (e.g. both top), then keepHidden is IGNORED for sync consistency
         if (((Config.notch && Config.notch.keepHidden !== undefined) ? Config.notch.keepHidden : false) && barPosition !== notchPosition) {
             return (screenNotchOpen || hasActiveNotifications || hoverActive || barHoverActive);
+        }
+
+        // If fullscreen and bar is NOT available on fullscreen, hard-hide the notch too
+        // This prevents barHoverActive from leaking through when the bar itself is hidden
+        if (activeWindowFullscreen && !(Config.bar && Config.bar.availableOnFullscreen !== undefined ? Config.bar.availableOnFullscreen : false)) {
+            return false;
         }
 
         // If not auto-hiding (pinned and not fullscreen), always show
