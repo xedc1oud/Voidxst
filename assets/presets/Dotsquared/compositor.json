@@ -26,7 +26,7 @@
     "gapsOut": 4,
     "inactiveBorderAngle": 45,
     "inactiveBorderColor": [
-        "surface"
+        "surfaceContainerHigh"
     ],
     "layout": "dwindle",
     "rounding": 16,
@@ -34,15 +34,15 @@
     "shadowColorInactive": "shadow",
     "shadowEnabled": true,
     "shadowIgnoreWindow": true,
-    "shadowOffset": "4 4",
+    "shadowOffset": "2 2",
     "shadowOpacity": 0.5,
     "shadowRange": 0,
     "shadowRenderPower": 3,
     "shadowScale": 1,
     "shadowSharp": true,
     "syncBorderColor": false,
-    "syncBorderWidth": true,
+    "syncBorderWidth": false,
     "syncRoundness": true,
     "syncShadowColor": false,
-    "syncShadowOpacity": false
+    "syncShadowOpacity": true
 }

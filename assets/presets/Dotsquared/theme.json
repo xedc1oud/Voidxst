@@ -1,47 +1,43 @@
 {
-    "oledMode": true,
+    "oledMode": false,
     "lightMode": false,
-    "roundness": 14,
-    "font": "Roboto Condensed",
-    "fontSize": 14,
-    "monoFont": "Roboto Mono",
-    "monoFontSize": 14,
+    "roundness": 0,
+    "font": "Terminus",
+    "fontSize": 8,
+    "monoFont": "Terminus",
+    "monoFontSize": 8,
     "tintIcons": false,
     "enableCorners": true,
     "animDuration": 300,
     "shadowOpacity": 0.5,
     "shadowColor": "shadow",
-    "shadowXOffset": 0,
-    "shadowYOffset": 0,
-    "shadowBlur": 1,
+    "shadowXOffset": 1,
+    "shadowYOffset": 1,
+    "shadowBlur": 0,
     "srBg": {
         "label": "Background",
         "gradient": [
             [
-                "background",
-                0.25
-            ],
-            [
-                "overBackground",
-                0.75
+                "surfaceBright",
+                0
             ]
         ],
-        "gradientType": "radial",
+        "gradientType": "halftone",
         "gradientAngle": 0,
-        "gradientCenterX": 0.401377688172043,
-        "gradientCenterY": 0.3990255376344086,
-        "halftoneDotMin": 0,
+        "gradientCenterX": 0.5,
+        "gradientCenterY": 0.5,
+        "halftoneDotMin": 2.040334302325581,
         "halftoneDotMax": 2,
         "halftoneStart": 0,
         "halftoneEnd": 1,
-        "halftoneDotColor": "surface",
-        "halftoneBackgroundColor": "background",
+        "halftoneDotColor": "background",
+        "halftoneBackgroundColor": "surface",
         "border": [
             "surfaceVariant",
-            0
+            1
         ],
         "itemColor": "overBackground",
-        "opacity": 0.3
+        "opacity": 1
     },
     "srPopup": {
         "label": "Popup",
@@ -55,11 +51,36 @@
                 1
             ]
         ],
-        "gradientType": "linear",
+        "gradientType": "halftone",
         "gradientAngle": 0,
         "gradientCenterX": 0.5,
         "gradientCenterY": 0.5,
-        "halftoneDotMin": 0,
+        "halftoneDotMin": 2.0494186046511627,
+        "halftoneDotMax": 2.0100532945736433,
+        "halftoneStart": 0,
+        "halftoneEnd": 1,
+        "halftoneDotColor": "surfaceDim",
+        "halftoneBackgroundColor": "surfaceBright",
+        "border": [
+            "surfaceTint",
+            1
+        ],
+        "itemColor": "overBackground",
+        "opacity": 1
+    },
+    "srInternalBg": {
+        "label": "Internal BG",
+        "gradient": [
+            [
+                "outlineVariant",
+                0
+            ]
+        ],
+        "gradientType": "halftone",
+        "gradientAngle": 0,
+        "gradientCenterX": 0.5,
+        "gradientCenterY": 0.5,
+        "halftoneDotMin": 1.9670542635658914,
         "halftoneDotMax": 2,
         "halftoneStart": 0,
         "halftoneEnd": 1,
@@ -70,62 +91,29 @@
             1
         ],
         "itemColor": "overBackground",
-        "opacity": 0.3
-    },
-    "srInternalBg": {
-        "label": "Internal BG",
-        "gradient": [
-            [
-                "background",
-                0
-            ],
-            [
-                "overSurfaceVariant",
-                1
-            ]
-        ],
-        "gradientType": "radial",
-        "gradientAngle": 0,
-        "gradientCenterX": 0.5,
-        "gradientCenterY": 0.5,
-        "halftoneDotMin": 0,
-        "halftoneDotMax": 2,
-        "halftoneStart": 0,
-        "halftoneEnd": 1,
-        "halftoneDotColor": "surface",
-        "halftoneBackgroundColor": "background",
-        "border": [
-            "surfaceBright",
-            0
-        ],
-        "itemColor": "overBackground",
-        "opacity": 0.2
+        "opacity": 1
     },
     "srBarBg": {
         "label": "Bar BG",
         "gradient": [
             [
-                "surfaceDim",
+                "surfaceBright",
                 0
-            ],
-            [
-                "overSurfaceVariant",
-                1
             ]
         ],
-        "gradientType": "radial",
+        "gradientType": "halftone",
         "gradientAngle": 0,
         "gradientCenterX": 0.5,
         "gradientCenterY": 0.5,
-        "halftoneDotMin": 0,
+        "halftoneDotMin": 2,
         "halftoneDotMax": 2,
         "halftoneStart": 0,
         "halftoneEnd": 1,
-        "halftoneDotColor": "surface",
+        "halftoneDotColor": "surfaceBright",
         "halftoneBackgroundColor": "surfaceDim",
         "border": [
-            "surfaceBright",
-            0
+            "surfaceTint",
+            1
         ],
         "itemColor": "overBackground",
         "opacity": 0
@@ -134,15 +122,11 @@
         "label": "Pane",
         "gradient": [
             [
-                "surface",
+                "background",
                 0
-            ],
-            [
-                "overSurfaceVariant",
-                1
             ]
         ],
-        "gradientType": "radial",
+        "gradientType": "linear",
         "gradientAngle": 0,
         "gradientCenterX": 0.5,
         "gradientCenterY": 0.5,
@@ -153,11 +137,11 @@
         "halftoneDotColor": "surfaceBright",
         "halftoneBackgroundColor": "surface",
         "border": [
-            "surfaceBright",
-            0
+            "surfaceVariant",
+            1
         ],
         "itemColor": "overBackground",
-        "opacity": 0.3
+        "opacity": 1
     },
     "srCommon": {
         "label": "Common",
@@ -165,28 +149,24 @@
             [
                 "surface",
                 0
-            ],
-            [
-                "overSurfaceVariant",
-                1
             ]
         ],
-        "gradientType": "radial",
+        "gradientType": "halftone",
         "gradientAngle": 0,
         "gradientCenterX": 0.5,
         "gradientCenterY": 0.5,
-        "halftoneDotMin": 0,
+        "halftoneDotMin": 2.003391472868217,
         "halftoneDotMax": 2,
         "halftoneStart": 0,
         "halftoneEnd": 1,
         "halftoneDotColor": "background",
         "halftoneBackgroundColor": "surface",
         "border": [
-            "surfaceBright",
-            0
+            "surfaceVariant",
+            1
         ],
         "itemColor": "overBackground",
-        "opacity": 0.3
+        "opacity": 1
     },
     "srFocus": {
         "label": "Focus",
@@ -194,13 +174,34 @@
             [
                 "surfaceBright",
                 0
-            ],
-            [
-                "overSurfaceVariant",
-                1
             ]
         ],
-        "gradientType": "radial",
+        "gradientType": "halftone",
+        "gradientAngle": 0,
+        "gradientCenterX": 0.5,
+        "gradientCenterY": 0.5,
+        "halftoneDotMin": 2,
+        "halftoneDotMax": 2,
+        "halftoneStart": 0,
+        "halftoneEnd": 1,
+        "halftoneDotColor": "surface",
+        "halftoneBackgroundColor": "surfaceBright",
+        "border": [
+            "surfaceTint",
+            1
+        ],
+        "itemColor": "overBackground",
+        "opacity": 1
+    },
+    "srPrimary": {
+        "label": "Primary",
+        "gradient": [
+            [
+                "primary",
+                0
+            ]
+        ],
+        "gradientType": "linear",
         "gradientAngle": 0,
         "gradientCenterX": 0.5,
         "gradientCenterY": 0.5,
@@ -208,60 +209,27 @@
         "halftoneDotMax": 2,
         "halftoneStart": 0,
         "halftoneEnd": 1,
-        "halftoneDotColor": "surfaceVariant",
-        "halftoneBackgroundColor": "surfaceBright",
-        "border": [
-            "surfaceBright",
-            0
-        ],
-        "itemColor": "overBackground",
-        "opacity": 0.5
-    },
-    "srPrimary": {
-        "label": "Primary",
-        "gradient": [
-            [
-                "primary",
-                0.25
-            ],
-            [
-                "overBackground",
-                0.75
-            ]
-        ],
-        "gradientType": "radial",
-        "gradientAngle": 0,
-        "gradientCenterX": 0.6005124327956989,
-        "gradientCenterY": 0.6032006048387096,
-        "halftoneDotMin": 0,
-        "halftoneDotMax": 2,
-        "halftoneStart": 0,
-        "halftoneEnd": 1,
         "halftoneDotColor": "overPrimaryContainer",
         "halftoneBackgroundColor": "primary",
         "border": [
-            "primary",
-            0
+            "overPrimaryContainer",
+            1
         ],
-        "itemColor": "primaryFixed",
-        "opacity": 0.5
+        "itemColor": "overPrimary",
+        "opacity": 1
     },
     "srPrimaryFocus": {
         "label": "Primary Focus",
         "gradient": [
             [
                 "overPrimaryContainer",
-                0.25
-            ],
-            [
-                "overBackground",
-                0.75
+                0
             ]
         ],
-        "gradientType": "radial",
+        "gradientType": "linear",
         "gradientAngle": 0,
-        "gradientCenterX": 0.40072664650537637,
-        "gradientCenterY": 0.4031628024193548,
+        "gradientCenterX": 0.5,
+        "gradientCenterY": 0.5,
         "halftoneDotMin": 0,
         "halftoneDotMax": 2,
         "halftoneStart": 0,
@@ -270,27 +238,23 @@
         "halftoneBackgroundColor": "overPrimaryContainer",
         "border": [
             "overBackground",
-            0
+            1
         ],
-        "itemColor": "primaryFixed",
-        "opacity": 0.7
+        "itemColor": "overPrimary",
+        "opacity": 1
     },
     "srOverPrimary": {
         "label": "Over Primary",
         "gradient": [
             [
                 "overPrimary",
-                0.25
-            ],
-            [
-                "primaryFixed",
-                0.75
+                0
             ]
         ],
-        "gradientType": "radial",
+        "gradientType": "linear",
         "gradientAngle": 0,
-        "gradientCenterX": 0.6035786290322581,
-        "gradientCenterY": 0.5970052083333334,
+        "gradientCenterX": 0.5,
+        "gradientCenterY": 0.5,
         "halftoneDotMin": 0,
         "halftoneDotMax": 2,
         "halftoneStart": 0,
@@ -298,28 +262,24 @@
         "halftoneDotColor": "primaryContainer",
         "halftoneBackgroundColor": "overPrimary",
         "border": [
-            "overPrimary",
-            0
+            "overPrimaryContainer",
+            1
         ],
         "itemColor": "primary",
-        "opacity": 0.5
+        "opacity": 1
     },
     "srSecondary": {
         "label": "Secondary",
         "gradient": [
             [
                 "secondary",
-                0.25
-            ],
-            [
-                "overBackground",
-                0.75
+                0
             ]
         ],
-        "gradientType": "radial",
+        "gradientType": "linear",
         "gradientAngle": 0,
-        "gradientCenterX": 0.3954133064516129,
-        "gradientCenterY": 0.40234375,
+        "gradientCenterX": 0.5,
+        "gradientCenterY": 0.5,
         "halftoneDotMin": 0,
         "halftoneDotMax": 2,
         "halftoneStart": 0,
@@ -327,28 +287,24 @@
         "halftoneDotColor": "overSecondaryContainer",
         "halftoneBackgroundColor": "secondary",
         "border": [
-            "secondary",
-            0
+            "overSecondaryContainer",
+            1
         ],
-        "itemColor": "secondaryFixed",
-        "opacity": 0.5
+        "itemColor": "overSecondary",
+        "opacity": 1
     },
     "srSecondaryFocus": {
         "label": "Secondary Focus",
         "gradient": [
             [
                 "overSecondaryContainer",
-                0.25
-            ],
-            [
-                "overBackground",
-                0.75
+                0
             ]
         ],
-        "gradientType": "radial",
+        "gradientType": "linear",
         "gradientAngle": 0,
-        "gradientCenterX": 0.40291078629032256,
-        "gradientCenterY": 0.40170320900537637,
+        "gradientCenterX": 0.5,
+        "gradientCenterY": 0.5,
         "halftoneDotMin": 0,
         "halftoneDotMax": 2,
         "halftoneStart": 0,
@@ -359,25 +315,21 @@
             "overBackground",
             0
         ],
-        "itemColor": "secondaryFixed",
-        "opacity": 0.7
+        "itemColor": "overSecondary",
+        "opacity": 1
     },
     "srOverSecondary": {
         "label": "Over Secondary",
         "gradient": [
             [
                 "overSecondary",
-                0.25
-            ],
-            [
-                "secondaryFixed",
-                0.75
+                0
             ]
         ],
-        "gradientType": "radial",
+        "gradientType": "linear",
         "gradientAngle": 0,
-        "gradientCenterX": 0.5982337869623656,
-        "gradientCenterY": 0.6007959509408602,
+        "gradientCenterX": 0.5,
+        "gradientCenterY": 0.5,
         "halftoneDotMin": 0,
         "halftoneDotMax": 2,
         "halftoneStart": 0,
@@ -385,28 +337,24 @@
         "halftoneDotColor": "secondaryContainer",
         "halftoneBackgroundColor": "overSecondary",
         "border": [
-            "overSecondary",
-            0
+            "secondary",
+            1
         ],
         "itemColor": "secondary",
-        "opacity": 0.5
+        "opacity": 1
     },
     "srTertiary": {
         "label": "Tertiary",
         "gradient": [
             [
                 "tertiary",
-                0.25
-            ],
-            [
-                "overBackground",
-                0.75
+                0
             ]
         ],
-        "gradientType": "radial",
+        "gradientType": "linear",
         "gradientAngle": 0,
-        "gradientCenterX": 0.6037256384408602,
-        "gradientCenterY": 0.6012999831989247,
+        "gradientCenterX": 0.5,
+        "gradientCenterY": 0.5,
         "halftoneDotMin": 0,
         "halftoneDotMax": 2,
         "halftoneStart": 0,
@@ -414,28 +362,24 @@
         "halftoneDotColor": "overTertiaryContainer",
         "halftoneBackgroundColor": "tertiary",
         "border": [
-            "tertiary",
-            0
+            "overTertiaryContainer",
+            1
         ],
-        "itemColor": "tertiaryFixed",
-        "opacity": 0.5
+        "itemColor": "overTertiary",
+        "opacity": 1
     },
     "srTertiaryFocus": {
         "label": "Tertiary Focus",
         "gradient": [
             [
                 "overTertiaryContainer",
-                0.25
-            ],
-            [
-                "overBackground",
-                0.75
+                0
             ]
         ],
-        "gradientType": "radial",
+        "gradientType": "linear",
         "gradientAngle": 0,
-        "gradientCenterX": 0.39900453629032256,
-        "gradientCenterY": 0.40227024529569894,
+        "gradientCenterX": 0.5,
+        "gradientCenterY": 0.5,
         "halftoneDotMin": 0,
         "halftoneDotMax": 2,
         "halftoneStart": 0,
@@ -446,25 +390,21 @@
             "overBackground",
             0
         ],
-        "itemColor": "tertiaryFixed",
-        "opacity": 0.7
+        "itemColor": "overTertiary",
+        "opacity": 1
     },
     "srOverTertiary": {
         "label": "Over Tertiary",
         "gradient": [
             [
                 "overTertiary",
-                0.25
-            ],
-            [
-                "tertiaryFixed",
-                0.75
+                0
             ]
         ],
-        "gradientType": "radial",
+        "gradientType": "linear",
         "gradientAngle": 0,
-        "gradientCenterX": 0.5967741935483871,
-        "gradientCenterY": 0.6005019321236559,
+        "gradientCenterX": 0.5,
+        "gradientCenterY": 0.5,
         "halftoneDotMin": 0,
         "halftoneDotMax": 2,
         "halftoneStart": 0,
@@ -472,28 +412,24 @@
         "halftoneDotColor": "tertiaryContainer",
         "halftoneBackgroundColor": "overTertiary",
         "border": [
-            "overTertiary",
-            0
+            "tertiary",
+            1
         ],
         "itemColor": "tertiary",
-        "opacity": 0.5
+        "opacity": 1
     },
     "srError": {
         "label": "Error",
         "gradient": [
             [
                 "error",
-                0.25
-            ],
-            [
-                "overBackground",
-                0.75
+                0
             ]
         ],
-        "gradientType": "radial",
+        "gradientType": "linear",
         "gradientAngle": 0,
-        "gradientCenterX": 0.5969632056451613,
-        "gradientCenterY": 0.5997248823924731,
+        "gradientCenterX": 0.5,
+        "gradientCenterY": 0.5,
         "halftoneDotMin": 0,
         "halftoneDotMax": 2,
         "halftoneStart": 0,
@@ -501,28 +437,24 @@
         "halftoneDotColor": "overErrorContainer",
         "halftoneBackgroundColor": "error",
         "border": [
-            "error",
-            0
+            "overErrorContainer",
+            1
         ],
-        "itemColor": "error",
-        "opacity": 0.5
+        "itemColor": "overError",
+        "opacity": 1
     },
     "srErrorFocus": {
         "label": "Error Focus",
         "gradient": [
             [
                 "overBackground",
-                0.75
-            ],
-            [
-                "error",
-                0.25
+                0
             ]
         ],
-        "gradientType": "radial",
+        "gradientType": "linear",
         "gradientAngle": 0,
-        "gradientCenterX": 0.3952137936827957,
-        "gradientCenterY": 0.40339381720430106,
+        "gradientCenterX": 0.5,
+        "gradientCenterY": 0.5,
         "halftoneDotMin": 0,
         "halftoneDotMax": 2,
         "halftoneStart": 0,
@@ -533,25 +465,21 @@
             "overBackground",
             0
         ],
-        "itemColor": "error",
-        "opacity": 0.7
+        "itemColor": "overError",
+        "opacity": 1
     },
     "srOverError": {
         "label": "Over Error",
         "gradient": [
             [
                 "overError",
-                0.216
-            ],
-            [
-                "error",
-                0.75
+                0
             ]
         ],
-        "gradientType": "radial",
+        "gradientType": "linear",
         "gradientAngle": 0,
-        "gradientCenterX": 0.5978347614247311,
-        "gradientCenterY": 0.5965956821236559,
+        "gradientCenterX": 0.5,
+        "gradientCenterY": 0.5,
         "halftoneDotMin": 0,
         "halftoneDotMax": 2,
         "halftoneStart": 0,
@@ -559,10 +487,10 @@
         "halftoneDotColor": "errorContainer",
         "halftoneBackgroundColor": "overError",
         "border": [
-            "overError",
-            0
+            "error",
+            1
         ],
         "itemColor": "error",
-        "opacity": 0.5
+        "opacity": 1
     }
 }

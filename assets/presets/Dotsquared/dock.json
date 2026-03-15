@@ -1,7 +1,7 @@
 {
     "enabled": true,
     "theme": "floating",
-    "position": "bottom",
+    "position": "left",
     "height": 48,
     "iconSize": 24,
     "spacing": 4,

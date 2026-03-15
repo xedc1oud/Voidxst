@@ -4,7 +4,7 @@
     "launcherIconTint": true,
     "launcherIconFullTint": true,
     "launcherIconSize": 18,
-    "pillStyle": "default",
+    "pillStyle": "squished",
     "screenList": [],
     "enableFirefoxPlayer": false,
     "barColor": [
@@ -21,7 +21,7 @@
     "showPinButton": true,
     "availableOnFullscreen": true,
     "use12hFormat": false,
-    "containBar": true,
+    "containBar": false,
     "keepBarShadow": false,
     "keepBarBorder": false
 }

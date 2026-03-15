@@ -1,6 +1,6 @@
 {
-    "position": "top",
-    "launcherIcon": "",
+    "position": "bottom",
+    "launcherIcon": "",
     "launcherIconTint": true,
     "launcherIconFullTint": true,
     "launcherIconSize": 18,
@@ -19,9 +19,9 @@
     "hoverToReveal": true,
     "hoverRegionHeight": 8,
     "showPinButton": true,
-    "availableOnFullscreen": true,
+    "availableOnFullscreen": false,
     "use12hFormat": false,
-    "containBar": true,
+    "containBar": false,
     "keepBarShadow": false,
     "keepBarBorder": false
 }

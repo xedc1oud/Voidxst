@@ -1,10 +1,10 @@
 {
     "activeBorderColor": [
-        "primary"
+        "primaryFixed"
     ],
     "borderAngle": 45,
     "inactiveBorderColor": [
-        "surface"
+        "#0D75BC"
     ],
     "inactiveBorderAngle": 45,
     "borderSize": 2,
@@ -12,7 +12,7 @@
     "syncRoundness": true,
     "syncBorderWidth": false,
     "syncBorderColor": false,
-    "syncShadowOpacity": false,
+    "syncShadowOpacity": true,
     "syncShadowColor": false,
     "gapsIn": 2,
     "gapsOut": 4,

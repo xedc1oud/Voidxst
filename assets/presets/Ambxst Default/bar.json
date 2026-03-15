@@ -1,15 +1,15 @@
 {
-    "availableOnFullscreen": false,
+    "availableOnFullscreen": true,
     "barColor": [
         [
             "surface",
             0
         ]
     ],
-    "containBar": true,
+    "containBar": false,
     "enableFirefoxPlayer": false,
-    "frameEnabled": true,
-    "frameThickness": 0,
+    "frameEnabled": false,
+    "frameThickness": 8,
     "hoverRegionHeight": 8,
     "hoverToReveal": true,
     "keepBarBorder": false,
