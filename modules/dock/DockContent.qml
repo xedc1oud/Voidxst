@@ -79,12 +79,24 @@ Item {
         return true;
     }
 
+    // Monitor reference and refrence to toplevels on monitor
+    readonly property var compositorMonitor: AxctlService.monitorFor(screen)
+    readonly property var toplevels: (!compositorMonitor || !compositorMonitor.activeWorkspace || !AxctlService.clients.values) ? [] : AxctlService.clients.values.filter(c => c.workspace.id === compositorMonitor.activeWorkspace.id)
+
+    // Check if there are any windows on the current monitor and workspace
+    readonly property bool hasWindows: toplevels.length > 0
+
     // Fullscreen detection
     readonly property bool activeWindowFullscreen: {
-        const toplevel = ToplevelManager.activeToplevel;
-        if (!toplevel || !toplevel.activated)
-            return false;
-        return toplevel.fullscreen === true;
+        if (!compositorMonitor || !toplevels) return false;
+
+        // Check all toplevels on active workspace
+        for (var i = 0; i < toplevels.length; i++) {
+            if (toplevels[i].fullscreen == true) {
+               return true;
+            }
+        }
+        return false;
     }
 
     // Reveal logic
@@ -100,7 +112,7 @@ Item {
             return (Config.dock?.hoverToReveal && dockMouseArea.containsMouse);
         }
 
-        return root.pinned || (Config.dock?.hoverToReveal && dockMouseArea.containsMouse) || !ToplevelManager.activeToplevel?.activated
+        return root.pinned || (Config.dock?.hoverToReveal && dockMouseArea.containsMouse) || !hasWindows
     }
 
     readonly property int totalMargin: root.windowSideMargin + root.edgeSideMargin

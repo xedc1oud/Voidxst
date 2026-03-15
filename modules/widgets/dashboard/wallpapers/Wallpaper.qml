@@ -461,6 +461,35 @@ PanelWindow {
         mpvIpcProcess.running = true;
     }
 
+    function requestVideoSync() {
+        if (GlobalStates.wallpaperManager !== wallpaper) {
+            if (GlobalStates.wallpaperManager) {
+                GlobalStates.wallpaperManager.requestVideoSync();
+            }
+            return;
+        }
+        videoSyncTimer.restart();
+    }
+
+    Timer {
+        id: videoSyncTimer
+        interval: 1200 // give mpvpaper processes time to spawn and initialize
+        repeat: false
+        onTriggered: {
+            console.log("Broadcasting video sync to all mpvpaper sockets...");
+            mpvSyncProcess.running = true;
+        }
+    }
+
+    Process {
+        id: mpvSyncProcess
+        running: false
+        command: ["bash", "-c", "for sock in /tmp/ambxst_mpv_socket_*; do echo '{ \"command\": [\"set_property\", \"time-pos\", 0] }' | socat - \"$sock\" 2>/dev/null; done"]
+        onExited: code => {
+            console.log("Video sync broadcast completed with code:", code);
+        }
+    }
+
     function updateMpvShader() {
         if (getFileType(effectiveWallpaper) !== "video") {
             return;
@@ -1367,6 +1396,7 @@ PanelWindow {
                         if (sourceFile) {
                             console.log("Restarting mpvpaper for:", sourceFile);
                             mpvpaperProcess.running = true;
+                            wallpaper.requestVideoSync();
                         }
                     }
                 }
@@ -1383,6 +1413,7 @@ PanelWindow {
                     if (sourceFile) {
                         console.log("Initial mpvpaper run for:", sourceFile);
                         mpvpaperProcess.running = true;
+                        wallpaper.requestVideoSync();
                     }
                 }
 
