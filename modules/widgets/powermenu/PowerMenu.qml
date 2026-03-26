@@ -32,12 +32,12 @@ ActionGrid {
         {
             icon: Icons.suspend,
             tooltip: "Suspend",
-            command: "systemctl suspend"
+            command: "loginctl suspend" 
         },
         {
             icon: Icons.hibernate,
             tooltip: "Hibernate",
-            command: "systemctl hibernate"
+            command: "loginctl hibernate" 
         },
         {
             icon: Icons.logout,
@@ -47,12 +47,12 @@ ActionGrid {
         {
             icon: Icons.reboot,
             tooltip: "Reboot",
-            command: "systemctl reboot"
+            command: "loginctl reboot"
         },
         {
             icon: Icons.shutdown,
             tooltip: "Power Off",
-            command: "systemctl poweroff"
+            command: "loginctl poweroff" 
         }
     ]
 
